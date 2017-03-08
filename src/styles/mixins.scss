@@ -1,0 +1,17 @@
+@import "variables";
+
+@mixin media($media) {
+  @if $media == large-and-bigger {
+    @media only screen and (min-width: $largeMinBreakpoint) {
+      @content;
+    }
+  } @else if $media == medium-and-bigger {
+    @media only screen and (min-width: $mediumMinBreakpoint) {
+      @content;
+    }
+  } @else if $media == medium-only {
+    @media only screen and (min-width: $mediumMinBreakpoint) and (max-width: $largeMinBreakpoint) {
+      @content;
+    }
+  }
+}

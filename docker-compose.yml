@@ -1,0 +1,9 @@
+app:
+  build: ./
+  environment:
+    SERVICE_HOST: 192.168.99.101
+    NODE_ENV: production
+  volumes:
+    - .:/usr/local/app
+  ports:
+    - 8080:3000

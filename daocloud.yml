@@ -1,0 +1,27 @@
+version: 2.0
+
+test:
+  image: node:6
+  script:
+    - yarn run test
+
+build:
+  lite_image:
+    compile:
+      dockerfile_path: ci/Dockerfile.compile
+      build_dir: /
+      cache: true
+
+    extract:
+      - /usr/local/app/lib
+      - /usr/local/app/config
+      - /usr/local/app/public
+      - /usr/local/app/node_modules
+      - /usr/local/app/run.sh
+      - /usr/local/app/VERSION
+      - /usr/local/app/package.json
+
+    package:
+      dockerfile_path: ci/Dockerfile.build
+      build_dir: /
+      cache: true

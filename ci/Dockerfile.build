@@ -1,0 +1,18 @@
+FROM node:6
+MAINTAINER Cao Xiaoqi <xqcao@thoughtworks.com>
+
+ENV NODE_ENV production
+
+COPY /usr/local/app/lib /usr/local/app/lib
+COPY /usr/local/app/config /usr/local/app/config
+COPY /usr/local/app/public /usr/local/app/public
+COPY /usr/local/app/node_modules /usr/local/app/node_modules
+COPY /usr/local/app/run.sh /usr/local/app/run.sh
+COPY /usr/local/app/VERSION /usr/local/app/VERSION
+COPY /usr/local/app/package.json /usr/local/app/package.json
+
+WORKDIR /usr/local/app
+
+EXPOSE 3000
+
+CMD ./run.sh
